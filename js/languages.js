@@ -10,6 +10,8 @@ var Languages = {
         "about": `> About`,
         "settings": `> Settings`,
 
+        "theme": "Toggle themes",
+
         "eng": "English",
         "ptbr": "Português (Brazil) / Brazilian Portuguese",
 
@@ -51,8 +53,9 @@ var Languages = {
         "entertainment": `> Entretenimento`,
         "tools": `> Ferramentas`,
         "about": `> Sobre`,
-
-        "settings": `Configurações`,
+        "settings": `> Configurações`,
+        
+        "theme": "Mudar temas",
 
         "eng": "Inglês / English",
         "ptbr": "Português (Brazil)",

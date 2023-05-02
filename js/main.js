@@ -5,6 +5,7 @@ var Website = {
     devName: "Raquel",
     kofiLink: "rachelviolet",
     redditLink: "rachievi",
+    displayingSettings: false,
     theme: localStorage.getItem("theme"),
     lang: localStorage.getItem("lang"),
     wipShow: localStorage.getItem("wip"),
@@ -32,7 +33,6 @@ var Website = {
     wipCheck: function() {
         if (this.wipShow == false || this.wipShow == "false") {
             document.getElementById("entertainment").style.display = "none";
-            document.getElementById("settings").style.display = "none";
         }
     },
     themeSwitch: function(userChoice) {
@@ -136,6 +136,16 @@ var Website = {
             }
         }
     },
+    settingsToggle: function() {
+        if (!this.displayingSettings) {
+            document.getElementById("settings-div").style.display = "inline";
+            this.displayingSettings = true;
+        }
+        else {
+            document.getElementById("settings-div").style.display = "none";
+            this.displayingSettings = false;
+        }
+    },
     setup: function(settingNewLanguage, newLang) {
         if (!settingNewLanguage) {document.getElementById("js-disclaimer").remove();}
         if (settingNewLanguage) {
@@ -153,6 +163,7 @@ var Website = {
                 document.getElementById("tools").textContent = Languages.eng.tools;
                 document.getElementById("about").textContent = Languages.eng.about;
                 document.getElementById("settings").textContent = Languages.eng.settings;
+                document.getElementById("settings-theme").textContent = Languages.eng.theme;
                 switch (this.pageName) {
                     case "home":
                         document.getElementById("title").textContent = Languages.eng.title;
@@ -192,6 +203,7 @@ var Website = {
                 document.getElementById("tools").textContent = Languages.ptbr.tools;
                 document.getElementById("about").textContent = Languages.ptbr.about;
                 document.getElementById("settings").textContent = Languages.ptbr.settings;
+                document.getElementById("settings-theme").textContent = Languages.ptbr.theme;
                 switch (this.pageName) {
                     case "home":
                         document.getElementById("title").textContent = Languages.ptbr.title;

@@ -19,11 +19,12 @@
             <a href="./entertainment.html" id="entertainment" style="color: '#c70c0c'">Entertainment...</a>
             <a href="./tools.html" id="tools">Tools...</a>
             <a href="./about.html" id="about">About...</a>
-            <a href="" id="settings">Settings...</a>
+            <button id="settings" onclick="Website.settingsToggle()">Settings...</button>
         </nav>
         <a href="./text/eng-phones.html">What do you need to know before buying a phone?</a>
         <a href="./text/br-phones.html">O que você precisa saber antes de comprar um celular?</a>
         <div id="settings-div">
+            <button id="settings-theme" onclick="Website.themeSwitch(true);">Toggle dark theme</button>
         </div>
         <div id="languages-div">
             <button id="english" onclick="Website.setup(true, 'eng')">English</button>

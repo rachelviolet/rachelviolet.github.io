@@ -8,6 +8,7 @@ a, button, p, h1, h2, section, span, nav, label, input {
     font-family: "Open Sans";
     color: #0f0;
 }
+#settings-div {display: none;}
 @media (orientation:landscape) {
     a, p, h1, section, span, h2, nav, button, label {font-size: 2vw;}
 }
@@ -41,8 +42,8 @@ a:link, a:visited {color: #0f0;}
 
 #settings {
     border: 0;
+    padding: 0;
     background-color: transparent;
-    color: #c70c0c;
     text-decoration: underline;
 }
 a:hover, button:hover {
