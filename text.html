@@ -9,7 +9,10 @@
         <link rel="icon" type="image/x-icon" href="./media/icon-16.png">
     </head>
     <body onload="Website.setup()">
-        <p id="js-disclaimer" style="color: #f00;">ERR: JAVASCRIPT-DISABLED</p>
+        <p id="js-disclaimer" style="color: #ff0;">
+            JAVASCRIPT IS DISABLED OR YOUR CONNECTION IS SLOW.<br>
+            JAVASCRIPT ESTÁ DESATIVADO OU SUA CONEXÃO ESTÁ LENTA.
+        </p>
         <a href="./index.html" id="home"></a>
         <nav>
             <a href="./text.html" id="text"></a>
@@ -18,10 +21,14 @@
             <a href="./about.html" id="about"></a>
             <a href="" id="settings"></a>
         </nav>
-        <div id="settings-div">
-        </div>
         <a href="./text/eng-phones.html">What do you need to know before buying a phone?</a>
         <a href="./text/br-phones.html">O que você precisa saber antes de comprar um celular?</a>
+        <div id="settings-div">
+        </div>
+        <div id="languages-div">
+            <button id="english" onclick="Website.setup(true, 'eng')">English</button>
+            <button id="portuguese" onclick="Website.setup(true, 'ptbr')">Portuguese &lpar;Brazil&rpar;</button>
+        </div>
         <script src="./js/main.js"></script>
         <script src="./js/text.js"></script>
         <script src="./js/languages.js"></script>

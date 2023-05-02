@@ -11,8 +11,13 @@
     </head>
     <body onload="Website.setup()">
         <a href="./index.html" id="home"></a>
-        <p id="js-disclaimer" style="color: #f00;">ERR: JAVASCRIPT-DISABLED</p>
+        <p id="js-disclaimer" style="color: #ff0;">
+            JAVASCRIPT IS DISABLED OR YOUR CONNECTION IS SLOW.<br>
+            JAVASCRIPT ESTÁ DESATIVADO OU SUA CONEXÃO ESTÁ LENTA.
+        </p>
         <section id="about-dev"></section>
+        <a id="kofi" href="https://ko-fi.com/rachelviolet" target="_blank"></a>
+        <a id="reddit" href="https://www.reddit.com/user/rachievi" target="_blank"></a>
         <section>
         <span id="about-website"></span>  
         <span id="about-website-span"></span>
@@ -27,6 +32,10 @@
             <a href="" id="settings"></a>
         </nav>
         <div id="settings-div">
+        </div>
+        <div id="languages-div">
+            <button id="english" onclick="Website.setup(true, 'eng')">English</button>
+            <button id="portuguese" onclick="Website.setup(true, 'ptbr')">Portuguese &lpar;Brazil&rpar;</button>
         </div>
         <script src="./js/main.js"></script>
         <script src="./js/languages.js"></script>

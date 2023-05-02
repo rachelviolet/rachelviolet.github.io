@@ -9,7 +9,10 @@
         <link rel="icon" type="image/x-icon" href="./media/icon-16.png">
     </head>
     <body onload="Website.setup()">
-        <p id="js-disclaimer" style="color: #f00;">ERR: JAVASCRIPT-DISABLED</p>
+        <p id="js-disclaimer" style="color: #ff0;">
+            JAVASCRIPT IS DISABLED OR YOUR CONNECTION IS SLOW.<br>
+            JAVASCRIPT ESTÁ DESATIVADO OU SUA CONEXÃO ESTÁ LENTA.
+        </p>
         <a href="./index.html" id="home"></a>
         <nav>
             <a href="./text.html" id="text"></a>
@@ -19,6 +22,10 @@
             <a href="" id="settings"></a>
         </nav>
         <div id="settings-div">
+        </div>
+        <div id="languages-div">
+            <button id="english" onclick="Website.setup(true, 'eng')">English</button>
+            <button id="portuguese" onclick="Website.setup(true, 'ptbr')">Portuguese &lpar;Brazil&rpar;</button>
         </div>
         <!-- TODO: Buttons, of course. -->
         <script src="./js/main.js"></script>
