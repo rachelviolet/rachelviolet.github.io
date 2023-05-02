@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf")
+}
+body {background-color: #000000;}
+body, nav {display: grid;}
+a, p, h1, section, span, h2, nav, button, label {
+    font-family: "Open Sans";
+    font-size: 2vw;
+    color: #00ff00
+}
+
+nav, button, div * {width: fit-content;}
+nav::before {
+    content: "\a";
+    white-space: pre;
+}
+nav::after {
+    content: "\a";
+    white-space: pre;
+}
+input {
+    border-radius: 1%;
+    border-color: #00ff00;
+    background-color: #000000;
+    color: #00ff00;
+}
+
+button {border: 0; background-color: transparent;}
+
+a:link, a:visited {color: #00ff00;}
+#brief-description {white-space: pre;}
+/* TEMPORARY CODE */
+#entertainment:link {color: #c70c0c;}
+#entertainment:visited {color: #b30c0c;}
+/* TEMORARY CODE */
+
+#settings {
+    border: 0;
+    background-color: transparent;
+    color: #c70c0c;
+    text-decoration: underline;
+}
+a:hover, button:hover {
+    font-weight: bolder;
+    filter: brightness(150%);
+}

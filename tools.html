@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Raquel Violeta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>sessionStorage.setItem("currentP", "tools");</script>
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/tools.css">
+    </head>
+    <body onload="website.setup()">
+        <h1 id="title"></h1>
+        <p id="brief-description"></p>
+        <p id="js-disclaimer" style="color: #f00;">ERR: JAVASCRIPT-DISABLED</p>
+        <a id="home" href="./index.html"></a>
+
+        <nav>
+            <a href="./text.html" id="text"></a>
+            <a href="./entertainment.html" id="entertainment"></a>
+            <a href="./tools.html" id="tools"></a>
+            <a href="./about.html" id="about"></a>
+            <a href="" id="settings"></a>
+        </nav>
+        <div id="settings-div">
+        </div>
+        <div id="tools-div">
+            <button id="calculator-tool" class="tools-selector" onclick="displayTool('calc')"></button>
+            <button id="character-count-tool" class="tools-selector" onclick="displayTool('count')"></button>
+            <!-- <button id="character-replace-tool" class="tools-selector" onclick="displayTool('replace')"></button> -->
+        </div>
+
+        <!-- Calculator tool -->
+        <div id="calculator-tool-div" class="tools-selector">
+            <div id="calculator-input-form">
+                <input id="calculator-input1" type="number" value="1" oninput="calculator.calculate(null)">
+                <input id="calculator-input2" type="number" value="1" oninput="calculator.calculate(null)">
+            </div>
+            <div id="calculator-operations">
+                <button id="calculator-addition" onclick="calculator.calculate('+')"></button>
+                <button id="calculator-subtraction" onclick="calculator.calculate('-')"></button>
+                <button id="calculator-multiplication" onclick="calculator.calculate('*')"></button>
+                <button id="calculator-division" onclick="calculator.calculate('/')"></button>
+                <label id="calculator-result">= 2</label>
+            </div>
+        </div>
+
+        <!-- Character count tool -->
+        <div id="character-count-tool-div" class="tools-selector">
+            <input id="character-count-input" type="text" oninput="characterCount.count()">
+            <label id="character-count-all"></label>
+            <label id="character-count-nospaces"></label>
+        </div>
+
+        <!-- Character replace tool -->
+        <div id="character-replace-tool-div" class="tools-selector">
+            <label id="character-replace-input-label"></label>
+            <input id="character-replace-input" type="text">
+
+            <label id="character-replace-replacer-label"><label>
+            <input id="character-replace-replacer" type="text">
+
+            <label id="character-replace-replacer2-label"><label>
+            <input id="character-replace-replacer2" type="text">
+
+            <label id="character-replace-output"><label>
+        </div>
+
+        <!-- Browsing History Bookmarking tool -->
+        <!-- TODO -->
+
+        <script src="./js/main.js"></script>
+        <script src="./js/tools.js"></script>
+        <script src="./js/languages.js"></script>
+    </body>
+</html>

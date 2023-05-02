@@ -1,0 +1,12 @@
+#about-website-span {
+    font-style: italic;
+}
+
+section::before {
+    content: "\a";
+    white-space: pre;
+}
+#text::before {
+    content: "\a";
+    white-space: pre;
+}

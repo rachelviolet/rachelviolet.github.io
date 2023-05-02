@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf")
+}
+a, p, h1, h2 {font-family: "Open Sans";}
+
+.italic {font-style: italic;}
+
+#return {
+    font-size: 150%;
+    background: 0;
+}
+
+.article-title, .subtitle {text-align: center;}
+.subtitle {color: #aaa;}
+
+#toc {
+    display: block;
+    position: fixed;
+    top: 20%;
+    right: 4%;
+}
+@media screen and (max-width: 900px) {
+    #toc {position: static;}
+}
+#toc * {
+    display: block;
+    position: sticky;
+}
+
+p {width: 75%; }
+
+a:link, a:visited {
+    font-size: 120%;
+    color: #000;
+    font-style: italic;
+}

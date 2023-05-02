@@ -1,0 +1,16 @@
+.tools-selector {display: grid;}
+
+#calculator-tool-div, #character-count-tool-div, #character-replace-tool-div {display: none;}
+
+#tools-div {display: grid;}
+
+#character-replace-tool {color: #c70c0c}
+#calculator-input-form {display: grid;}
+
+#character-count-input{
+    /* position: fixed;
+    * TODO: Fix position in bigger screens? 
+    top: 35%;
+    left: 25%; */
+    width: 40%;
+}
