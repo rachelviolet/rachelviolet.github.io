@@ -2,8 +2,7 @@
 
 var Website = {
     pageName: sessionStorage.getItem("currentP"),
-    engDevName: "Rachel",
-    ptbrDevName: "Raquel",
+    devName: "Raquel",
     kofiLink: "rachelviolet",
     redditLink: "rachievi",
     theme: localStorage.getItem("theme"),
@@ -11,7 +10,12 @@ var Website = {
     wipShow: localStorage.getItem("wip"),
     dataCheck: function() {
         if (this.lang == null) {
-            this.lang = "eng";
+            if (navigator.language == "pt-BR" ) {
+                this.lang = "ptbr";
+            }
+            else {
+                this.lang = "eng";
+            }
             localStorage.setItem("lang", this.lang);
         }
         if (this.theme == null) {
@@ -25,7 +29,6 @@ var Website = {
         return;
     },
     wipCheck: function() {
-        console.log(Website.wipShow)
         if (Website.wipShow == "false") {
             document.getElementById("entertainment").style.display = "none";
             document.getElementById("settings").style.display = "none";
@@ -39,9 +42,9 @@ var Website = {
         }
         this.dataCheck();
         this.wipCheck();
+        document.title = `${Website.devName} - ${Website.pageName}`;
         switch (this.lang) {
             case "eng":
-                document.title = `${Website.engDevName} - ${Website.pageName}`;
                 if (this.pageName != "home") document.getElementById("home").textContent = Languages.eng.home;
                 document.getElementById("text").textContent = Languages.eng.text;
                 document.getElementById("entertainment").textContent = Languages.eng.entertainment;
@@ -81,7 +84,6 @@ var Website = {
                 }
                 break;
             case "ptbr": // Brazilian Portuguese.
-                document.title = `${Website.ptbrDevName} - ${Website.pageName}`;
                 if (this.pageName != "home") document.getElementById("home").textContent = Languages.ptbr.home;
                 document.getElementById("text").textContent = Languages.ptbr.text;
                 document.getElementById("entertainment").textContent = Languages.ptbr.entertainment;
@@ -140,4 +142,4 @@ var Website = {
     }
 }
 
-document.title = `${Website.engDevName} - ...`;
+document.title = `${Website.devName} - ...`;

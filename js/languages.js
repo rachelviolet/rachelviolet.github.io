@@ -2,8 +2,8 @@
 var Languages = {
     eng: {
         // Home page.
-        "title": `Welcome to ${Website.engDevName}'s website`,
-        "briefDesc": `A website for ${Website.engDevName} to share content, tools and short web games.\r\n(Under development)`,
+        "title": `Welcome to ${Website.devName}'s website`,
+        "briefDesc": `A website for ${Website.devName} to share content, tools and short web games.\r\n(Under development)`,
         "text": `> Text`,
         "entertainment": `> Entertainment`,
         "tools": `> Tools`,
@@ -33,7 +33,7 @@ var Languages = {
 
         // About page
         "aboutDev": 
-    `Rachel Violet (Raquel Violeta) is a content creator that enjoys technology-related subjects and writing.
+    `Raquel Violeta (Also known as Rachel Violet) is a content creator that enjoys technology-related subjects and writing.
     Rachel is also the one who wrote this website by herself. (in other words, I'm her)
     Suggestions are always welcome!`,
         "aboutWebsite": `This website was developed with`,
@@ -44,8 +44,8 @@ var Languages = {
         "home": `< 🏠 Home page`
     },
     ptbr: { // Brazilian Portuguese.
-        "title": `Boas vindas ao site da ${Website.ptbrDevName}`,
-        "briefDesc": `Um site para a ${Website.ptbrDevName} compartilhar conteúdo, ferramentas e jogos curtos na web.`,
+        "title": `Boas vindas ao site da ${Website.devName}`,
+        "briefDesc": `Um site para a ${Website.devName} compartilhar conteúdo, ferramentas e jogos curtos na web.`,
         // TODO
         "text": `> Texto`,
         "entertainment": `> Entretenimento`,
@@ -74,7 +74,7 @@ var Languages = {
 
         // About page
         "aboutDev": 
-    `Rachel Violet (Raquel Violeta) é uma criadora de conteúdo que gosta de assuntos relacionados à tecnologia e escrita.
+    `Raquel Violeta (Conhecida como Rachel Violet) é uma criadora de conteúdo que gosta de assuntos relacionados à tecnologia e escrita.
     Rachel também foi a pessoa que criou esse site. (em outras palavras, eu sou ela)
     Sugestões são sempre bem-vindas!`,
         "aboutWebsite": `Este site foi feito com`,
