@@ -43,7 +43,7 @@ var Languages = {
         "aboutWebsite2": `This website displays Raquel's text, short web games and a few tools.`,
         "fontsCredits": "This website uses the Open Sans font. 🔗",
 
-        "home": `< 🏠 Home page`
+        "home": `< Home page`
     },
     ptbr: { // Brazilian Portuguese.
         "title": `Boas vindas ao site da ${Website.devName}`,
