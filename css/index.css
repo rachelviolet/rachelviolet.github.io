@@ -4,19 +4,15 @@
 }
 body {background-color: #000000;}
 body, nav {display: grid;}
+a, button, p, h1, h2, section, span, nav, label, input {
+    font-family: "Open Sans";
+    color: #0f0;
+}
 @media (orientation:landscape) {
-    a, p, h1, section, span, h2, nav, button, label {
-        font-family: "Open Sans";
-        font-size: 2vw;
-        color: #00ff00
-    }
+    a, p, h1, section, span, h2, nav, button, label {font-size: 2vw;}
 }
 @media (orientation:portrait) {
-    a, p, h1, section, span, h2, nav, button, label {
-        font-family: "Open Sans";
-        font-size: 3vh;
-        color: #00ff00
-    }
+    a, p, h1, section, span, h2, nav, button, label {font-size: 3vh;}
 }
 
 nav, button, div * {width: fit-content;}
@@ -30,14 +26,13 @@ nav::after {
 }
 input {
     border-radius: 0.5vw;
-    border-color: #00ff00;
-    background-color: #000000;
-    color: #00ff00;
+    border-color: #0f0;
+    background-color: #000;
 }
 
 button {border: 0; background-color: transparent;}
 
-a:link, a:visited {color: #00ff00;}
+a:link, a:visited {color: #0f0;}
 #brief-description {white-space: pre;}
 /* TEMPORARY CODE */
 #entertainment:link {color: #c70c0c;}

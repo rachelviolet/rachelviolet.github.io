@@ -26,12 +26,114 @@ var Website = {
             this.wipShow = false;
             localStorage.setItem("wip", this.wipShow);
         }
+        this.themeSet();
         return;
     },
     wipCheck: function() {
-        if (Website.wipShow == "false") {
+        if (this.wipShow == false || this.wipShow == "false") {
             document.getElementById("entertainment").style.display = "none";
             document.getElementById("settings").style.display = "none";
+        }
+    },
+    themeSwitch: function(userChoice) {
+        if (userChoice) {
+            if (this.theme == "default") {
+                this.theme = "light";
+                localStorage.setItem("theme", this.theme);
+            }
+            else if (this.theme == "light") {
+                this.theme = "default";
+                localStorage.setItem("theme", this.theme);
+            }
+        }
+        this.themeSet();
+    },
+    themeSet: function () {
+        if (this.theme == "default") {
+            document.body.style.backgroundColor = "#000";
+            var tags = document.getElementsByTagName("a");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            tags = document.getElementsByTagName("button");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            var tags = document.getElementsByTagName("p");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            tags = document.getElementsByTagName("h1");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            var tags = document.getElementsByTagName("h2");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            tags = document.getElementsByTagName("section");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            var tags = document.getElementsByTagName("span");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            tags = document.getElementsByTagName("nav");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            var tags = document.getElementsByTagName("label");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+            tags = document.getElementsByTagName("input");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#0f0";
+            }
+        }
+        else if (this.theme == "light") {
+            document.body.style.backgroundColor = "#fff";
+            var tags = document.getElementsByTagName("a");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            tags = document.getElementsByTagName("button");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            var tags = document.getElementsByTagName("p");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            tags = document.getElementsByTagName("h1");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            var tags = document.getElementsByTagName("h2");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            tags = document.getElementsByTagName("section");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            var tags = document.getElementsByTagName("span");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            tags = document.getElementsByTagName("nav");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            var tags = document.getElementsByTagName("label");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
+            tags = document.getElementsByTagName("input");
+            for (var x = 0; x < tags.length; x++) {
+                tags[x].style.color = "#000";
+            }
         }
     },
     setup: function(settingNewLanguage, newLang) {
