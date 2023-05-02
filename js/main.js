@@ -1,8 +1,9 @@
 "use strict";
 
-var website = {
+var Website = {
     pageName: sessionStorage.getItem("currentP"),
-    devName: "Raquel",
+    engDevName: "Rachel",
+    ptbrDevName: "Raquel",
     theme: localStorage.getItem("theme"),
     lang: localStorage.getItem("lang"),
     wipShow: localStorage.getItem("wip"),
@@ -22,8 +23,8 @@ var website = {
         return;
     },
     wipCheck: function() {
-        console.log(website.wipShow)
-        if (website.wipShow == "false") {
+        console.log(Website.wipShow)
+        if (Website.wipShow == "false") {
             document.getElementById("entertainment").style.display = "none";
             document.getElementById("settings").style.display = "none";
         }
@@ -33,53 +34,55 @@ var website = {
         this.wipCheck();
         switch (this.lang) {
             case "eng":
-                if (this.pageName != "home") document.getElementById("home").textContent = eng.home;
-                document.getElementById("text").textContent = eng.text;
-                document.getElementById("entertainment").textContent = eng.entertainment;
-                document.getElementById("tools").textContent = eng.tools;
-                document.getElementById("about").textContent = eng.about;
-                document.getElementById("settings").textContent = eng.settings;
+                document.title = `${Website.engDevName} - ${Website.pageName}`;
+                if (this.pageName != "home") document.getElementById("home").textContent = Languages.eng.home;
+                document.getElementById("text").textContent = Languages.eng.text;
+                document.getElementById("entertainment").textContent = Languages.eng.entertainment;
+                document.getElementById("tools").textContent = Languages.eng.tools;
+                document.getElementById("about").textContent = Languages.eng.about;
+                document.getElementById("settings").textContent = Languages.eng.settings;
                 switch (this.pageName) {
                     case "home":
-                        document.getElementById("title").textContent = eng.title;
-                        document.getElementById("brief-description").textContent = eng.briefDesc;
+                        document.getElementById("title").textContent = Languages.eng.title;
+                        document.getElementById("brief-description").textContent = Languages.eng.briefDesc;
                         break;
                     case "text":
                         break;
                     case "entertainment":
                         break;
                     case "tools":
-                        document.getElementById("calculator-tool").textContent = eng.calculatorTool;
-                        document.getElementById("calculator-addition").textContent = eng.calculatorAddition;
-                        document.getElementById("calculator-subtraction").textContent = eng.calculatorSubtraction;
-                        document.getElementById("calculator-multiplication").textContent = eng.calculatorMultiplication;
-                        document.getElementById("calculator-division").textContent = eng.calculatorDivision;
-                        document.getElementById("character-count-tool").textContent = eng.characterCountTool;
-                        // document.getElementById("character-replace-tool").textContent = eng.characterReplaceTool;
-                        // document.getElementById("character-replace-input-label").textContent = eng.characterReplaceInputLabel;
-                        // document.getElementById("character-replace-replacer-label").textContent = eng.characterReplaceReplacerLabel;
-                        // document.getElementById("character-replace-replacer2-label").textContent = eng.characterReplaceReplacerLabel;
+                        document.getElementById("calculator-tool").textContent = Languages.eng.calculatorTool;
+                        document.getElementById("calculator-addition").textContent = Languages.eng.calculatorAddition;
+                        document.getElementById("calculator-subtraction").textContent = Languages.eng.calculatorSubtraction;
+                        document.getElementById("calculator-multiplication").textContent = Languages.eng.calculatorMultiplication;
+                        document.getElementById("calculator-division").textContent = Languages.eng.calculatorDivision;
+                        document.getElementById("character-count-tool").textContent = Languages.eng.characterCountTool;
+                        // document.getElementById("character-replace-tool").textContent = Languages.eng.characterReplaceTool;
+                        // document.getElementById("character-replace-input-label").textContent = Languages.eng.characterReplaceInputLabel;
+                        // document.getElementById("character-replace-replacer-label").textContent = Languages.eng.characterReplaceReplacerLabel;
+                        // document.getElementById("character-replace-replacer2-label").textContent = Languages.eng.characterReplaceReplacerLabel;
                         break;
                     case "about":
-                        document.getElementById("about-dev").textContent = eng.aboutDev;
-                        document.getElementById("about-website").textContent = eng.aboutWebsite;
-                        document.getElementById("about-website-span").textContent = eng.aboutWebsiteSpan;
-                        document.getElementById("about-website2").textContent = eng.aboutWebsite2;
-                        document.getElementById("fonts-credits").textContent = eng.fontsCredits;
+                        document.getElementById("about-dev").textContent = Languages.eng.aboutDev;
+                        document.getElementById("about-website").textContent = Languages.eng.aboutWebsite;
+                        document.getElementById("about-website-span").textContent = Languages.eng.aboutWebsiteSpan;
+                        document.getElementById("about-website2").textContent = Languages.eng.aboutWebsite2;
+                        document.getElementById("fonts-credits").textContent = Languages.eng.fontsCredits;
                         break;
                 }
                 break;
-            case "por": // Brazilian Portuguese.
-                if (this.pageName != "home") document.getElementById("home").textContent = por.home;
+            case "ptbr": // Brazilian Portuguese.
+                document.title = `${Website.ptbrDevName} - ${Website.pageName}`;
+                if (this.pageName != "home") document.getElementById("home").textContent = Langauges.ptbr.home;
                 switch (this.pageName) {
                     case "home":
-                        document.getElementById("title").textContent = por.title;
-                        document.getElementById("brief-description").textContent = por.briefDesc;
-                        document.getElementById("text").textContent = por.text;
-                        document.getElementById("entertainment").textContent = por.entertainment;
-                        document.getElementById("tools").textContent = por.tools;
-                        document.getElementById("about").textContent = por.about;
-                        document.getElementById("settings").textContent = por.settings;
+                        document.getElementById("title").textContent = Langauges.ptbr.title;
+                        document.getElementById("brief-description").textContent = Langauges.ptbr.briefDesc;
+                        document.getElementById("text").textContent = Langauges.ptbr.text;
+                        document.getElementById("entertainment").textContent = Langauges.ptbr.entertainment;
+                        document.getElementById("tools").textContent = Langauges.ptbr.tools;
+                        document.getElementById("about").textContent = Langauges.ptbr.about;
+                        document.getElementById("settings").textContent = Langauges.ptbr.settings;
                         break;
                     case "text":
                         break;
@@ -88,16 +91,32 @@ var website = {
                     case "tools":
                         break;
                     case "about":
-                        document.getElementById("about-dev").textContent = por.aboutDev;
-                        document.getElementById("about-website").textContent = por.aboutWebsite;
-                        document.getElementById("about-website-span").textContent = por.aboutWebsiteSpan;
-                        document.getElementById("about-website2").textContent = por.aboutWebsite;
+                        document.getElementById("about-dev").textContent = Langauges.ptbr.aboutDev;
+                        document.getElementById("about-website").textContent = Langauges.ptbr.aboutWebsite;
+                        document.getElementById("about-website-span").textContent = Langauges.ptbr.aboutWebsiteSpan;
+                        document.getElementById("about-website2").textContent = Langauges.ptbr.aboutWebsite;
                         break;
                     }
             break;
         }
+    },
+    displayTool: function (tool) {
+        document.getElementById("calculator-tool-div").style.display = "none";
+        document.getElementById("character-count-tool-div").style.display = "none";
+        document.getElementById("character-replace-tool-div").style.display = "none";
+        switch (tool) {
+            case "calc":
+                document.getElementById("calculator-tool-div").style.display = "inline";
+                break;
+            case "count":
+                document.getElementById("character-count-tool-div").style.display = "block";
+                break;
+            case "replace":
+                document.getElementById("character-replace-tool-div").style.display = "inline";
+                break;
+        }
     }
 }
 
-document.title = `${website.devName} - ${website.pageName}`;
+document.title = `${Website.engDevName} - ...`;
 document.getElementById("js-disclaimer").remove();

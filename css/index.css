@@ -4,10 +4,19 @@
 }
 body {background-color: #000000;}
 body, nav {display: grid;}
-a, p, h1, section, span, h2, nav, button, label {
-    font-family: "Open Sans";
-    font-size: 2vw;
-    color: #00ff00
+@media (orientation:landscape) {
+    a, p, h1, section, span, h2, nav, button, label {
+        font-family: "Open Sans";
+        font-size: 2vw;
+        color: #00ff00
+    }
+}
+@media (orientation:portrait) {
+    a, p, h1, section, span, h2, nav, button, label {
+        font-family: "Open Sans";
+        font-size: 3vh;
+        color: #00ff00
+    }
 }
 
 nav, button, div * {width: fit-content;}
@@ -20,7 +29,7 @@ nav::after {
     white-space: pre;
 }
 input {
-    border-radius: 1%;
+    border-radius: 0.5vw;
     border-color: #00ff00;
     background-color: #000000;
     color: #00ff00;

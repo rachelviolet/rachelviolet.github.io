@@ -1,21 +1,4 @@
 "use strict";
-
-function displayTool(tool) {
-    document.getElementById("calculator-tool-div").style.display = "none";
-    document.getElementById("character-count-tool-div").style.display = "none";
-    document.getElementById("character-replace-tool-div").style.display = "none";
-    switch (tool) {
-        case "calc":
-            document.getElementById("calculator-tool-div").style.display = "inline";
-            break;
-        case "count":
-            document.getElementById("character-count-tool-div").style.display = "inline";
-            break;
-        case "replace":
-            document.getElementById("character-replace-tool-div").style.display = "inline";
-            break;
-    }
-}
 var calculator = {
     calculate: function(operation) {
         let num1 = Number(document.getElementById("calculator-input1").value);

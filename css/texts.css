@@ -6,10 +6,15 @@ a, p, h1, h2 {font-family: "Open Sans";}
 
 .italic {font-style: italic;}
 
-#return {
-    font-size: 150%;
-    background: 0;
+@media (orientation:landscape) {
+    a {font-size: 1.5vw;}
+    #return {font-size: 3vw}
 }
+@media (orientation:portrait) {
+    a {font-size: 1.5vh;}
+    #return {font-size: 3vh}
+}
+#return {background: 0;}
 
 .article-title, .subtitle {text-align: center;}
 .subtitle {color: #aaa;}
@@ -28,10 +33,9 @@ a, p, h1, h2 {font-family: "Open Sans";}
     position: sticky;
 }
 
-p {width: 75%; }
+p {width: 75%;}
 
 a:link, a:visited {
-    font-size: 120%;
     color: #000;
     font-style: italic;
 }

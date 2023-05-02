@@ -1,11 +1,12 @@
 .tools-selector {display: grid;}
-
+#character-count-tool-div * {display: block;}
 #calculator-tool-div, #character-count-tool-div, #character-replace-tool-div {display: none;}
 
 #tools-div {display: grid;}
 
 #character-replace-tool {color: #c70c0c}
 #calculator-input-form {display: grid;}
+#calculator-result {display: block;}
 
 #character-count-input{
     /* position: fixed;

@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>sessionStorage.setItem("currentP", "tools");</script>
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="icon" type="image/x-icon" href="./media/icon-16.png">
         <link rel="stylesheet" href="./css/tools.css">
     </head>
-    <body onload="website.setup()">
-        <h1 id="title"></h1>
-        <p id="brief-description"></p>
+    <body onload="Website.setup()">
         <p id="js-disclaimer" style="color: #f00;">ERR: JAVASCRIPT-DISABLED</p>
         <a id="home" href="./index.html"></a>
 
@@ -24,9 +23,9 @@
         <div id="settings-div">
         </div>
         <div id="tools-div">
-            <button id="calculator-tool" class="tools-selector" onclick="displayTool('calc')"></button>
-            <button id="character-count-tool" class="tools-selector" onclick="displayTool('count')"></button>
-            <!-- <button id="character-replace-tool" class="tools-selector" onclick="displayTool('replace')"></button> -->
+            <button id="calculator-tool" class="tools-selector" onclick="Website.displayTool('calc')"></button>
+            <button id="character-count-tool" class="tools-selector" onclick="Website.displayTool('count')"></button>
+            <!-- <button id="character-replace-tool" class="tools-selector" onclick="Website.displayTool('replace')"></button> -->
         </div>
 
         <!-- Calculator tool -->
