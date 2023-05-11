@@ -8,9 +8,12 @@ button, p, h1 {
 }
 button {
     border-radius: 2px;
-    border-color: #f00;
+    border-color: #b00;
     background-color: #fff;
     font-size: 3vw;
+}
+button:active {
+    border-color: #f00;
 }
 #title {font-size: 3vw;}
 #subtitle {font-size: 2vw;}
@@ -37,8 +40,11 @@ button {
     transform: translate(-50%, -50%);
     width: 20vw;
     height: 20vw;
-    background-color: #f00;
+    background-color: #e00;
     border-radius: 100%;
+}
+#click-point:hover {
+    background-color: #f00;
 }
 #pause {
     position: absolute;
