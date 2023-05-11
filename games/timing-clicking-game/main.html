@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Raquel Violeta">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/main.js"></script>
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+    <body onload="Game.safetyCheck()">
+        <div id="menu">
+            <h1 id="title">Timing Clicking Game</h1>
+            <p id="subtitle">Loading... Please, check if JAVASCRIPT is activated &lpar;JS-OFF-OR-SLOW&rpar;</p>
+            <button id="play">Play</button>
+            <p id="author">By Raquel Violeta, under the GPL v3 license.</p>
+        </div>
+        <div id="game">
+            <p id="counting">0</p>
+            <button id="pause">Pause</button>
+            <canvas id="click-point"></canvas>
+            <div id="left-side">
+                <button id="l-click">Left</button>
+                <canvas id="left-bar"></canvas>
+            </div>
+            <div id="right-side">
+                <button id="r-click">Right</button>
+                <canvas id="right-bar"></canvas>
+            </div>
+            <p id="keys">:D</p>
+        </div>
+    </body>
+</html>

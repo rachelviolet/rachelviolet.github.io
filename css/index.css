@@ -1,9 +1,9 @@
+body {background-color: #000000;}
+body, nav {display: grid;}
 @font-face {
     font-family: "Open Sans";
     src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf")
 }
-body {background-color: #000000;}
-body, nav {display: grid;}
 a, button, p, h1, h2, section, span, nav, label, input {
     font-family: "Open Sans";
     color: #0f0;

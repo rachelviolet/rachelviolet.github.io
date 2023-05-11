@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf")
+}
+button, p, h1 {
+    font-family: "Open Sans";
+    color: #000;
+}
+button {
+    border-radius: 2px;
+    border-color: #f00;
+    background-color: #fff;
+    font-size: 3vw;
+}
+#title {font-size: 3vw;}
+#subtitle {font-size: 2vw;}
+#title, #subtitle, #play {
+    display: block;
+    text-align: center;
+}
+#play {
+    margin: auto;
+}
+#author {
+    position: absolute;
+    bottom: 3vw;
+    right: 3vw;
+    font-size: 1vw;
+}
+
+
+#game {display: none;}
+#click-point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: 20vw;
+    background-color: #f00;
+    border-radius: 100%;
+}
+#pause {
+    position: absolute;
+    top: 5vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+#left-side *, #right-side * {display: block;}
+#left-side {
+    position: absolute;
+    bottom: 8vw;
+    left: 4vw;
+}
+#left-bar {
+    width: 20vw;
+    height: 4vw;
+    background: linear-gradient(to right, #f00 0%, #f00 1%, #00f 1%, #00f 100%);
+}
+#right-side {
+    position: absolute;
+    bottom: 8vw;
+    right: 4vw;
+}
+#right-bar {
+    width: 20vw;
+    height: 4vw;
+    background: linear-gradient(to right, #f00 0%, #f00 1%, #00f 1%, #00f 100%);
+}

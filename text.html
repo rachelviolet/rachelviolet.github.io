@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>sessionStorage.setItem("currentP", "text");</script>
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/textsPage.css">
         <link rel="icon" type="image/x-icon" href="./media/icon-16.png">
     </head>
     <body onload="Website.setup()">
@@ -21,8 +22,10 @@
             <a href="./about.html" id="about">About...</a>
             <button id="settings" onclick="Website.settingsToggle()">Settings...</button>
         </nav>
-        <a href="./text/eng-phones.html">What do you need to know before buying a phone?</a>
-        <a href="./text/br-phones.html">O que você precisa saber antes de comprar um celular?</a>
+        <div id="infotext-buyphone" class="separators">
+            <a href="./text/eng-phones.html">What do you need to know before buying a phone?</a>
+            <a href="./text/br-phones.html">O que você precisa saber antes de comprar um celular?</a>
+        </div>
         <div id="settings-div">
             <button id="settings-theme" onclick="Website.themeSwitch(true);">Toggle dark theme</button>
         </div>
