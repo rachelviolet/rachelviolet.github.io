@@ -32,7 +32,7 @@ var Website = {
     },
     wipCheck: function() {
         if (this.wipShow == false || this.wipShow == "false") {
-            document.getElementById("entertainment").style.display = "none";
+            // This function MAY be unnecessary now. (2023/05/30)
         }
     },
     themeSwitch: function(userChoice) {
