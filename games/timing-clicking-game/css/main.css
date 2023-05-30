@@ -48,7 +48,7 @@ button:active {
 }
 #pause {
     position: absolute;
-    top: 5vw;
+    top: 7vw;
     left: 50%;
     transform: translate(-50%, 0%);
 }
