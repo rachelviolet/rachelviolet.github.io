@@ -12,11 +12,12 @@
             <h1 id="title">Timing Clicking Game</h1>
             <p id="subtitle">Loading... Please, check if JAVASCRIPT is activated &lpar;JS-OFF-OR-SLOW&rpar;</p>
             <button id="play" onclick="start()">Play</button>
+            <button id="reset" onclick="resetGame()">Reset</button>
             <p id="author">By Raquel Violeta, under the GPL v3 license.</p>
         </div>
         <div id="game">
             <p id="counting">0</p>
-            <button id="pause">Stop</button>
+            <button id="pause" onclick="stopGame()">Stop</button>
             <canvas id="click-point" onclick="clickMoment('left')" oncontextmenu="clickMoment('right')"></canvas>
             <div id="left-side">
                 <button id="l-click">Left</button>
@@ -27,6 +28,10 @@
                 <canvas id="right-bar"></canvas>
             </div>
             <p id="keys">:D</p>
+        </div>
+        <div id="languages-div">
+            <button id="eng" onclick="languageSwitch('eng')">English</button>
+            <button id="por" onclick="languageSwitch('por')">Portuguese</button>
         </div>
     </body>
 </html>

@@ -4,6 +4,7 @@ const Languages = {
     english: {
         subtitle: "Click on the right button at the right time.",
         pause: "Stop",
+        reset: `Reset (${resetProgress}/10)`,
         left: "Left",
         right: "Right",
         keys: "Keys= (A); (Left Arrow);(D); (Right Arrow)\r\nYou can also use the mouse's left/right button on the circle."
@@ -11,9 +12,14 @@ const Languages = {
     portuguese: {
         subtitle: "Clique no botão certo no momento certo.",
         pause: "Parar",
+        reset: `Reiniciar (${resetProgress}/10)`,
         left: "Esquerda",
         right: "Direita",
         keys: "Teclas= (A); (Seta Esquerda);(D); (Seta Direita)\r\nVocê também pode usar o clique esquerdo/direito do mouse no círculo."
+    },
+    updateLanguage: function() {
+        this.english.reset = `Reset (${resetProgress}/10)`;
+        this.portuguese.reset = `Reiniciar (${resetProgress}/10)`;
     }
 }
 
@@ -22,7 +28,8 @@ var version = "1.0";
 var language = localStorage.getItem("tmclkgam-lang");
 var requiredClick;
 var registeredClick = undefined;
-var clickStage;
+var clickStage = 0;
+var resetProgress = 0;
 var clickedAlready;
 var count;
 var ongoingGame;
@@ -31,7 +38,11 @@ function widgetSwitch(screenToHide, screenToShow) {
     document.getElementById(screenToHide).style.display = "none";
     document.getElementById(screenToShow).style.display = "inline";
 }
-function start(doStart) {
+function start() {
+    if (clickStage != 0) {
+        setTimeout(start, 200);
+        return;
+    }
     requiredClick = undefined;
     count = parseInt(localStorage.getItem("tmclkgam-count"));
     update(true);
@@ -41,6 +52,11 @@ function start(doStart) {
     ongoingGame = true;
     extraTime = [250, 500, 750, 1000, 1250];
     requestAClick();
+}
+function stopGame() {
+    ongoingGame = false;
+    widgetSwitch("game", "menu");
+    clearInterval(requestAClick.timeCount);
 }
 function update(resetBars) {
     if (resetBars) {
@@ -59,7 +75,16 @@ function update(resetBars) {
         document.getElementById("right-bar").style.background = `linear-gradient(to right, #f00 0%, #f00 ${clickStageCount}%, #00f 1%, #00f 100%`
         document.getElementById("left-bar").style.background = `linear-gradient(to right, #f00 0%, #f00 1%, #00f 1%, #00f 100%`
     }
-};
+}
+function resetGame() {
+    if (resetProgress >= 10) {
+        resetProgress = 0;
+        count = 0;
+        update(true);
+    }
+    else resetProgress++;
+    languageSetting();
+}
 function requestAClick() {
     console.log("Requesting a click...");
     if (requiredClick != undefined && ongoingGame == false) {
@@ -125,29 +150,33 @@ function clickMoment(sentClick) {
     }
     else {
         console.log("INCORRECT CLICK");
-        ongoingGame = false;
-        widgetSwitch("game", "menu");
+        stopGame();
     }
     console.log("Undoing click requirement.");
     clearInterval(requestAClick.timeCount);
     requiredClick == undefined;
 }
-function languageSwitch() {
-
+function languageSwitch(setLanguage) {
+    language = setLanguage;
+    localStorage.setItem("tmclkgam-lang", language);
+    languageSetting();
 };
 function languageSetting() {
+    Languages.updateLanguage();
     switch(language) {
-        case "english":
+        case "eng":
         default:
             document.getElementById("subtitle").textContent = Languages.english.subtitle;
             document.getElementById("pause").textContent = Languages.english.pause;
+            document.getElementById("reset").textContent = Languages.english.reset;
             document.getElementById("l-click").textContent = Languages.english.left;
             document.getElementById("r-click").textContent = Languages.english.right;
             document.getElementById("keys").textContent = Languages.english.keys;
             break;
-        case "portuguese":
+        case "por":
             document.getElementById("subtitle").textContent = Languages.portuguese.subtitle;
             document.getElementById("pause").textContent = Languages.portuguese.pause;
+            document.getElementById("reset").textContent = Languages.english.reset;
             document.getElementById("l-click").textContent = Languages.portuguese.left;
             document.getElementById("r-click").textContent = Languages.portuguese.right;
             document.getElementById("keys").textContent = Languages.portuguese.keys;
@@ -158,7 +187,7 @@ function safetyCheck() {
         count = 0;
     }
     if (language == null) {
-        language = "english";
+        language = "eng";
         localStorage.setItem("tmclkgam-lang", language);
     }
     languageSetting();

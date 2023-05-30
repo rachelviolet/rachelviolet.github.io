@@ -17,11 +17,11 @@ button:active {
 }
 #title {font-size: 3vw;}
 #subtitle {font-size: 2vw;}
-#title, #subtitle, #play {
+#title, #subtitle, #play, #reset {
     display: block;
     text-align: center;
 }
-#play {
+#play, #reset {
     margin: auto;
 }
 #author {
@@ -30,6 +30,15 @@ button:active {
     right: 3vw;
     font-size: 1vw;
 }
+#languages-div {
+    position: absolute;
+    width: auto;
+    height: auto;
+    bottom: 2vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#languages-div * {display: block;}
 
 
 #game {display: none;}
