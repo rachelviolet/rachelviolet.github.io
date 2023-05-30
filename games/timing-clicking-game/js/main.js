@@ -34,11 +34,15 @@ var clickedAlready;
 var count;
 var ongoingGame;
 var extraTime = [];
+var winAudio = new Audio("./audio/w.wav");
+var lossAudio = new Audio("./audio/l.wav");
 function widgetSwitch(screenToHide, screenToShow) {
     document.getElementById(screenToHide).style.display = "none";
     document.getElementById(screenToShow).style.display = "inline";
 }
 function start() {
+    winAudio.pause();
+    lossAudio.pause();
     if (clickStage != 0) {
         setTimeout(start, 200);
         return;
@@ -140,6 +144,8 @@ function requestAClick() {
     }, 500 + extraTime[Math.floor(Math.random() * 5)]);
 };
 function clickMoment(sentClick) {
+    winAudio.pause();
+    lossAudio.pause();
     console.log(`Click Check Moment received: "${sentClick}" CLICK; Expected: "${requiredClick}" CLICK)`);
     if (sentClick == requiredClick) {
         console.log("CORRECT CLICK");
@@ -147,10 +153,14 @@ function clickMoment(sentClick) {
         clickedAlready = true;
         update(true);
         clearInterval(requestAClick.timeCount);
+        winAudio.currentTime = 0;
+        winAudio.play();
     }
     else {
         console.log("INCORRECT CLICK");
         stopGame();
+        lossAudio.currentTime = 0;
+        lossAudio.play();
     }
     console.log("Undoing click requirement.");
     clearInterval(requestAClick.timeCount);
@@ -195,7 +205,7 @@ function safetyCheck() {
         e.preventDefault();
     })
     document.addEventListener('keydown', function(e) {
-        console.log(e.key);
+        if (!ongoingGame) return;
         if (e.key.toLowerCase() == "arrowleft" || e.key.toLowerCase() == "a") {
             clickMoment("left")
         }
