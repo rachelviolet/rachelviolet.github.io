@@ -6,131 +6,149 @@ const Languages = {
         pause: "Pause",
         left: "Left",
         right: "Right",
-        keys: "Keys: (A), (Left Arrow);(D), (Right Arrow)\r\nYou can also use the mouse's left/right button on the circle."
+        keys: "Keys= (A); (Left Arrow);(D); (Right Arrow)\r\nYou can also use the mouse's left/right button on the circle."
     },
     portuguese: {
         subtitle: "Clique no botão certo no momento certo.",
-        keys: "Teclas: (A), (Seta Esquerda);(D), (Seta Direita)\r\nVocê também pode usar o clique esquerdo/direito do mouse no círculo."
+        keys: "Teclas= (A); (Seta Esquerda);(D); (Seta Direita)\r\nVocê também pode usar o clique esquerdo/direito do mouse no círculo."
     }
 }
 
-var Game = {
-    title: "Timing Clicking Game",
-    version: "1.0",
-    language: localStorage.getItem("tmclkgam-lang"),
-    clicking: {
-        start: function(doStart) {
-            this.requiredClick = undefined;
-            this.clickStage = 0;
-            this.ongoingGame = doStart;
-            this.requestAClick();
-        },
-        requiredClick: undefined,
-        count: localStorage.getItem("tmclkgam-count"),
-        clickStage: 0,
-        clickedAlready: false,
-        ongoingGame: true,
-        extraTime: [250, 500, 750, 1000, 1250],
-        update: function() {
-            return // TODO
-        },
-        requestAClick: function() {
-            console.log("Requesting a click...");
-            if (this.requiredClick != undefined || this.ongoingGame == false) {
-                console.warn(`Couldn't request a click. RQ: ${this.requiredClick}; OG: ${this.ongoingGame}`)
-                try {
-                    console.log("Cleaning Interval...")
-                    clearInterval(timeCount);
-                }
-                catch {console.warn("Couldn't clean interval. Perhaps there was nothing to clean?")}
-                return;  
-            } 
-            if (Math.floor(Math.random() * 2) == 1) {this.requiredClick = "left"}
-            else {this.requiredClick = "right"}
-            console.log(`Click requested! Player must press ${this.requiredClick} button.`);
-            var timeCount = setInterval(function() {
-                console.log("Tick. timeCount interval.");
-                console.log(Game.clicking.ongoingGame)
-                if (Game.clicking.clickedAlready || !Game.clicking.ongoingGame) {
-                    console.warn("Ticking is supposed to stop.")
-                    Game.clicking.clickStage = 0;
-                    Game.clicking.clickedAlready = false;
-                    clearInterval(timeCount);
-                    return;
-                }
-                if (Game.clicking.clickStage >= 4) {
-                    if (!Game.clicking.ongoingGame) {
-                        console.warn("Tick interrupted by no ongoing game.");
-                        Game.clicking.clickStage = 0;
-                        Game.clicking.clickedAlready = false;
-                        clearInterval(timeCount);
-                        return;
-                    }
-                    if (Game.clicking.clickedAlready) {
-                        console.warn("Player has clicked already!")
-                        Game.clicking.clickStage = 0;
-                        Game.clicking.clickedAlready = false;
-                        clearInterval(timeCount);
-                        return;
-                    }
-                    console.log("CLICK OVER");
-                    Game.clicking.clickMoment(Game.clicking.registeredClick);
-                    Game.clicking.clickStage = 0;
-                    clearInterval(timeCount);
-                    return;
-                }
-                Game.clicking.clickStage++;
-            }, 500 + this.extraTime[Math.floor(Math.random() * 5)]);
-        },
-        clickMoment: function(sentClick) {
-            console.log(`Click Check Moment received "${sentClick}" CLICK (expected: "${this.requiredClick}" CLICK)`);
-            if (sentClick == this.requiredClick) {
-                console.log("CORRECT CLICK");
-                this.count++
-                localStorage.setItem("tmclkgam-count", this.count);
-                this.update();
-                this.requestAClick();
-            }
-            else {
-                console.log("INCORRECT CLICK");
-                this.ongoingGame = false;
-                // TODO: Send player to main menu.
-            }
-            console.log("Undoing click requirement.")
-            clearInterval(this.requestAClick.timeCount);
-            this.requiredClick == undefined;
+var title = "Timing Clicking Game";
+var version = "1.0";
+var language= localStorage.getItem("tmclkgam-lang");
+var requiredClick;
+var registeredClick = undefined;
+var clickStage;
+var clickedAlready;
+var count;
+var ongoingGame;
+var extraTime = [];
+function start(doStart) {
+    ongoingGame = doStart;
+    requiredClick = undefined;
+    count = localStorage.getItem("tmclkgam-count");
+    clickStage = 0;
+    clickedAlready = false;
+    ongoingGame = true;
+    extraTime = [250, 500, 750, 1000, 1250];
+    requestAClick();
+}
+function update() {
+    return // TODO
+};
+function requestAClick() {
+    console.log("Requesting a click...");
+    if (requiredClick != undefined && ongoingGame == false) {
+        console.warn(`Couldn't request a click.
+        requiredClick: ${requiredClick}; ongoingGame: ${ongoingGame}; clickedAlready: ${clickedAlready}`);
+        try {
+            console.log("Cleaning Interval...")
+            clearInterval(timeCount);
         }
-    },
-    languageSwitch: function() {
+        catch {console.warn("Couldn't clean interval. Perhaps there was nothing to clean?")}
+        return;  
+    }
+    if (Math.floor(Math.random() * 2) == 1) {requiredClick = "left"}
+    else {requiredClick = "right"}
+    console.log(`Click requested! Player must press ${requiredClick} button.`);
+    var timeCount = setInterval(function() {
+        console.log("Tick. timeCount interval.");
+        console.log(ongoingGame)
+        if (clickedAlready || !ongoingGame) {
+            console.warn(`Ticking is supposed to stop.
+            requiredClick: ${requiredClick}; ongoingGame: ${ongoingGame}; clickedAlready: ${clickedAlready}`);
+            clickStage = 0;
+            if (clickedAlready) {
+                clickedAlready = false;
+                requestAClick();
+            }
+            clearInterval(timeCount);
+            return;
+        }
+        if (clickStage >= 4) {
+            if (!ongoingGame) {
+                console.warn("Tick interrupted by no ongoing game.");
+                clickStage = 0;
+                clickedAlready = false;
+                clearInterval(timeCount);
+                return;
+            }
+            if (clickedAlready) {
+                console.warn("Player has clicked already!")
+                clickStage = 0;
+                clickedAlready = false;
+                clearInterval(timeCount);
+                return;
+            }
+            console.log("CLICK OVER");
+            clickMoment(registeredClick);
+            clickStage = 0;
+            clearInterval(timeCount);
+            return;
+        }
+        clickStage++;
+    }, 500 + extraTime[Math.floor(Math.random() * 5)]);
+};
+function clickMoment(sentClick) {
+        console.log(`Click Check Moment received: "${sentClick}" CLICK; Expected: "${requiredClick}" CLICK)`);
+        if (sentClick == requiredClick) {
+            console.log("CORRECT CLICK");
+            count++
+            localStorage.setItem("tmclkgam-count", count);
+            clickedAlready = true;
+            clearInterval(requestAClick.timeCount);
+            update();
+            requestAClick();
+        }
+        else {
+            console.log("INCORRECT CLICK");
+            ongoingGame = false;
+            // TODO= Send player to main menu.
+        }
+        console.log("Undoing click requirement.")
+        clearInterval(requestAClick.timeCount);
+        requiredClick == undefined;
+    }
+function languageSwitch() {
 
-    },
-    languageSetting: function() {
-        switch(this.language) {
-            case "english":
-            default:
-                document.getElementById("subtitle").textContent = Languages.english.subtitle;
-                document.getElementById("pause").textContent = Languages.english.pause;
-                document.getElementById("l-click").textContent = Languages.english.left;
-                document.getElementById("r-click").textContent = Languages.english.right;
-                document.getElementById("keys").textContent = Languages.english.keys;
-                break;
-            case "portuguese":
-                document.getElementById("subtitle").textContent = Languages.portuguese.subtitle;
-                document.getElementById("pause").textContent = Languages.portuguese.pause;
-                document.getElementById("l-click").textContent = Languages.portuguese.left;
-                document.getElementById("r-click").textContent = Languages.portuguese.right;
-                document.getElementById("keys").textContent = Languages.portuguese.keys;
-        }
-    },
-    safetyCheck: function() {
-        if (Game.clicking.count == null || typeof(Game.clicking.count) != "number") {
-            Game.clicking.count = 0;
-            localStorage.setItem("tmclkgam-count", Game.clicking.count);
-        }
-        if (this.language == null) {
-            this.language = "english",
-            localStorage.setItem("tmclkgam-lang", this.language);
-            this.languageSetting();
-        }
+};
+function languageSetting() {
+    switch(language) {
+        case "english":
+        default:
+            document.getElementById("subtitle").textContent = Languages.english.subtitle;
+            document.getElementById("pause").textContent = Languages.english.pause;
+            document.getElementById("l-click").textContent = Languages.english.left;
+            document.getElementById("r-click").textContent = Languages.english.right;
+            document.getElementById("keys").textContent = Languages.english.keys;
+            break;
+        case "portuguese":
+            document.getElementById("subtitle").textContent = Languages.portuguese.subtitle;
+            document.getElementById("pause").textContent = Languages.portuguese.pause;
+            document.getElementById("l-click").textContent = Languages.portuguese.left;
+            document.getElementById("r-click").textContent = Languages.portuguese.right;
+            document.getElementById("keys").textContent = Languages.portuguese.keys;
     }
 }
+function safetyCheck() {
+    if (count == null || typeof(count) != "number") {
+        count = 0;
+        localStorage.setItem("tmclkgam-count", count);
+    }
+    if (language == null) {
+        language = "english";
+        localStorage.setItem("tmclkgam-lang", language);
+        languageSetting();
+    }
+}
+document.addEventListener('keydown', function(e) {
+    // console.log(e.key);
+    if (e.key == "ArrowLeft") {
+        clickMoment("left")
+    }
+    else if (e.key == "ArrowRight") {
+        clickMoment("right")
+    }
+    else {return}
+})
