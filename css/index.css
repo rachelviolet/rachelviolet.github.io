@@ -35,10 +35,6 @@ button {border: 0; background-color: transparent;}
 
 a:link, a:visited {color: #0f0;}
 #brief-description {white-space: pre;}
-/* TEMPORARY CODE */
-#entertainment:link {color: #c70c0c;}
-#entertainment:visited {color: #b30c0c;}
-/* TEMORARY CODE */
 
 #settings {
     border: 0;
